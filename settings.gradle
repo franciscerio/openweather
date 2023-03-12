@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "OpenWeatherApp"
 include ':app'
+include ':common'
+include ':network'
+include ':local'
+include ':domain'
