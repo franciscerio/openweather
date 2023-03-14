@@ -15,4 +15,5 @@ object ThirdParty {
     const val GLIDE = "com.github.bumptech.glide:glide:${Version.GLIDE}"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Version.GLIDE}"
     const val GSON = "com.google.code.gson:gson:${Version.GSON}"
+    const val FLOW_BINDING_ANDROID = "io.github.reactivecircus.flowbinding:flowbinding-android:${Version.FLOW_BINDING}"
 }

@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation(Google.HILT)
     kapt(Google.HILT_COMPILER)
 
     api(Google.CORE_KTX)

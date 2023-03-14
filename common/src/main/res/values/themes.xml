@@ -44,23 +44,4 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowBackground">@drawable/window_background_splash_screen</item>
     </style>
-
-    <style name="BottomSheet" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
-        <item name="android:background">@drawable/bg_white_rounded_top_16dp</item>
-    </style>
-
-    <style name="Theme.Baseplate.BottomSheetDialog.Base" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/BottomSheet</item>
-        <item name="android:navigationBarColor">#4D000000</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowIsFloating">false</item>
-    </style>
-
-    <style name="Theme.Baseplate.BottomSheetDialog" parent="Theme.Baseplate.BottomSheetDialog.Base" />
-
-    <style name="ThemeOverlay.NumberPicker" parent="">
-        <item name="colorControlNormal">?attr/colorPrimaryFull</item>
-        <item name="android:textSize">17sp</item>
-        <item name="colorPrimary">?attr/colorPrimaryFull</item>
-    </style>
 </resources>

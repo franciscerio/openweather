@@ -1,10 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
-import com.fcerio.module.plugins.Config
-import com.fcerio.module.plugins.ThirdParty
-import com.fcerio.module.plugins.Android
-import com.fcerio.module.plugins.Google
-import java.util.Properties
+import com.fcerio.module.plugins.*
 
 plugins {
     id("com.android.application")
@@ -60,6 +56,8 @@ dependencies {
 
     implementation(Google.HILT)
     kapt(Google.HILT_COMPILER)
+    kapt(AndroidX.ARCH_EXTENSION_COMPILER)
+    kapt(ThirdParty.GLIDE_COMPILER)
 }
 
 // Allow references to generated code

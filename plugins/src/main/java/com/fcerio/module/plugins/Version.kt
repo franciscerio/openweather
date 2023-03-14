@@ -3,7 +3,7 @@ package com.fcerio.module.plugins
 object Version {
 
     // AndroidX
-    const val CORE_KTX = "1.7.0"
+    const val CORE_KTX = "1.9.0"
     const val APP_COMPAT = "1.5.1"
     const val CONSTRAINT_LAYOUT = "2.1.4"
     const val COORDINATOR_LAYOUT = "1.1.0"
@@ -12,14 +12,15 @@ object Version {
     const val ESPRESSO_CORE = "3.4.0"
     const val NAVIGATION = "2.5.2"
     const val ROOM = "2.4.3"
-    const val ACTIVITY_KTX = "1.2.0-beta01"
-    const val FRAGMENT_KTX = "1.3.0-beta01"
+    const val ACTIVITY_KTX = "1.6.1"
+    const val FRAGMENT_KTX = "1.5.5"
     const val RECYCLERVIEW = "1.2.1"
     const val PAGING_VERSION = "3.1.1"
-    const val VIEW_MODEL_VERSION = "2.6.0"
+    const val VIEW_MODEL_VERSION = "2.5.0-rc01"
+    const val ARCH_EXTENSION_COMPILER = "2.5.0-rc01"
 
     // Google
-    const val HILT = "2.44"
+    const val HILT = "2.42"
     const val FIREBASE = "30.4.1"
     // Coroutine Rx
     const val COROUTINES = "1.6.4"

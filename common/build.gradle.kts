@@ -59,7 +59,15 @@ dependencies {
     kapt(ThirdParty.GLIDE_COMPILER)
 
     api(AndroidX.VIEW_MODEL_KTX)
-    implementation(Google.MATERIAL)
+    api(AndroidX.VIEW_MODEL_SAVEDSTATE)
+    kapt(AndroidX.ARCH_EXTENSION_COMPILER)
+    api(Google.MATERIAL)
+
+    api(AndroidX.NAV_FRAGMENT_KTX)
+    api(AndroidX.NAV_UI_KTX)
+    api(ThirdParty.FLOW_BINDING_ANDROID)
+    implementation("androidx.savedstate:savedstate-ktx:1.2.0")
+
     implementation(Google.HILT)
     kapt(Google.HILT_COMPILER)
 }

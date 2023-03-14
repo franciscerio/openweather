@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/onboarding_graph">
+
+    <include app:graph="@navigation/onboarding_graph" />
+
+    <include app:graph="@navigation/current_weather_graph" />
+
+    <include app:graph="@navigation/current_weather_list_graph" />
+
+    <action
+        android:id="@+id/action_global_to_current_weather_graph"
+        app:destination="@id/current_weather_graph"
+        app:popUpTo="@id/main_graph"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_to_current_weather_list_graph"
+        app:destination="@id/current_weather_list_graph"
+        app:popUpTo="@id/main_graph"
+        app:popUpToInclusive="true" />
+
+</navigation>
