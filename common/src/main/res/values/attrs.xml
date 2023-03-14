@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  region Variables  -->
+    <attr name="colorPrimaryFull" format="color" />
+    <attr name="colorPrimaryShade1" format="color" />
+    <attr name="colorPrimaryShade2" format="color" />
+    <attr name="colorPrimaryShade3" format="color" />
+
+    <attr name="colorSecondaryFull" format="color" />
+    <attr name="colorSecondaryShadeFull" format="color" />
+
+    <attr name="colorAlertWarning" format="color" />
+    <attr name="colorAlertError" format="color" />
+    <attr name="colorAlertSuccess" format="color" />
+
+    <attr name="colorGreyInactive" format="color" />
+    <attr name="colorGreyBorderDivider" format="color" />
+
+    <attr name="colorBackground" format="color" />
+    <attr name="colorSheet" format="color" />
+
+    <attr name="colorOnLightRegular" format="color" />
+    <attr name="colorOnLightSecondary" format="color" />
+    <attr name="colorOnLightTertiary" format="color" />
+
+    <attr name="colorOnAlertError" format="color" /> <!-- Color to be used on top of color alert error -->
+    <attr name="colorOnAlertWarning" format="color" /> <!-- Color to be used on top of color warning -->
+    <attr name="colorOnAlertSuccess" format="color" /> <!-- Color to be used on top of color success -->
+
+    <attr name="screenMargin" format="dimension" />
+
+    <attr name="buttonsCapitalized" format="boolean" />
+    <attr name="rippleColor" format="color" />
+
+    <attr name="radiusButton" format="dimension" />
+    <attr name="radiusCard" format="dimension" />
+    <attr name="radiusBottomSheet" format="dimension" />
+    <attr name="radiusInput" format="dimension" />
+    <!--  endregion  -->
+</resources>

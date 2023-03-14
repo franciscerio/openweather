@@ -40,6 +40,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -55,7 +59,7 @@ dependencies {
     kapt(ThirdParty.GLIDE_COMPILER)
 
     api(AndroidX.VIEW_MODEL_KTX)
-
+    implementation(Google.MATERIAL)
     implementation(Google.HILT)
     kapt(Google.HILT_COMPILER)
 }

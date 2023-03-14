@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Styles.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="materialThemeOverlay">
+            @style/ThemeOverlay.Baseplate.ElevationOverlayDisabled
+        </item>
+
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="contentPadding">16dp</item>
+        <item name="strokeColor">#EAEAEA</item>
+
+        <item name="android:outlineAmbientShadowColor">@color/black_08</item>
+        <item name="android:ambientShadowAlpha">1</item>
+        <item name="android:spotShadowAlpha">1</item>
+        <item name="android:outlineSpotShadowColor">@color/black_08</item>
+        <item name="android:outlineProvider">background</item>
+    </style>
+</resources>

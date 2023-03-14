@@ -1,4 +1,4 @@
-package com.fcerio.module.common
+package com.fcerio.module.common.utils.dispatcher
 
 import dagger.Module
 import dagger.Provides

@@ -58,7 +58,6 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":common"))
 
-    implementation("com.google.android.material:material:1.8.0")
     implementation(Google.HILT)
     kapt(Google.HILT_COMPILER)
 }
