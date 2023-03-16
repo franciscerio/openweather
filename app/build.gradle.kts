@@ -52,6 +52,7 @@ android {
 dependencies {
     implementation(project(":network"))
     implementation(project(":domain"))
+    implementation(project(":data"))
     implementation(project(":common"))
 
     implementation(Google.HILT)

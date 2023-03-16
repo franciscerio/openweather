@@ -1,4 +1,4 @@
-package com.fcerio.module.domain
+package com.fcerio.module.domain.weather
 
 data class Sys(
     val type: Int,

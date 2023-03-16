@@ -15,13 +15,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
+    // Can still be improved
+    private const val OPEN_WEATHER_API_BASE_URL = "https://api.openweathermap.org/data/2.5/"
+    private const val APP_BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
     @Provides
     @Singleton
@@ -57,9 +60,22 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    @Named("OPEN_WEATHER_API")
+    fun providesOpenWeatherAPIRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(OPEN_WEATHER_API_BASE_URL)
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(okHttpClient)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    @Named("OPEN_WEATHER_APP")
     fun providesRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(APP_BASE_URL)
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
