@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">OpenWeatherApp</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_login_subtitle">Enter password to log into</string>
+    <string name="create_password_subtitle">Let’s create your password for</string>
+    <string name="create_password">Create Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
 </resources>
