@@ -1,10 +1,14 @@
 package com.fcerio.openweatherapp.features.main
 
 import android.Manifest
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.IBinder
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -43,10 +47,36 @@ class MainActivity : BaseViewModelActivity<ActivityMainBinding, MainViewModel>()
             }
         }
 
+
+    private lateinit var locationService: LocationService
+
+    private val connection = object : ServiceConnection {
+        override fun onServiceConnected(className: ComponentName, service: IBinder) {
+            // We've bound to LocationService, cast the IBinder and get LocalService instance
+            val binder = service as LocationService.LocationBinder
+            locationService = binder.getService()
+
+            lifecycleScope.launchWithTimber {
+                locationService
+                    .location
+                    .distinctUntilChanged()
+                    .collect {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Location (${it.latitude}, ${it.longitude}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+            }
+        }
+
+        override fun onServiceDisconnected(arg0: ComponentName) {
+
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupPermission()
-
         setupViews()
         setupVmObservers()
     }
@@ -131,14 +161,27 @@ class MainActivity : BaseViewModelActivity<ActivityMainBinding, MainViewModel>()
         }
     }
 
-    override fun onDestroy() {
-        startAndStopServices()
-        super.onDestroy()
-    }
-
     private fun startAndStopServices(action: String = ACTION_STOP) {
         val intent = Intent(applicationContext, LocationService::class.java)
         intent.action = action
         startService(intent)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setupPermission()
+        Intent(this, LocationService::class.java).also { intent ->
+            bindService(intent, connection, Context.BIND_AUTO_CREATE)
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        unbindService(connection)
+        startAndStopServices()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

@@ -1,9 +1,14 @@
 package com.fcerio.openweatherapp.features.weather.current
 
+import android.annotation.SuppressLint
+import android.content.ComponentName
+import android.content.ServiceConnection
+import android.os.IBinder
 import androidx.lifecycle.viewModelScope
 import com.fcerio.module.common.base.BaseStateViewModel
 import com.fcerio.module.common.utils.launchWithTimber
 import com.fcerio.module.data.features.weather.WeatherRepository
+import com.fcerio.openweatherapp.features.location.LocationService
 import com.fcerio.openweatherapp.features.weather.current.CurrentWeatherViewModel.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn

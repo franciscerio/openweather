@@ -1,32 +1,47 @@
 package com.fcerio.openweatherapp.features.location
 
-import android.app.ActivityManager
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.location.Location
+import android.os.Binder
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
+import com.fcerio.module.common.utils.dispatcher.DispatcherProvider
 import com.fcerio.openweatherapp.R
 import com.google.android.gms.location.LocationServices
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import timber.log.Timber
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LocationService : Service() {
 
-    private val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    @Inject
+    lateinit var dispatchers: DispatcherProvider
+
+    private val binder = LocationBinder()
+
+    private val serviceScope by lazy {
+        CoroutineScope(SupervisorJob() + dispatchers.io)
+    }
+
     private lateinit var locationClient: LocationClient
 
-    override fun onBind(intent: Intent?): IBinder? {
-        return null
+    private val mutableLocationSharedFlow: MutableSharedFlow<Location> = MutableSharedFlow()
+    val location: SharedFlow<Location> by lazy { mutableLocationSharedFlow.asSharedFlow() }
+
+    override fun onBind(intent: Intent?): IBinder {
+        return binder
+    }
+
+    inner class LocationBinder : Binder() {
+        fun getService(): LocationService = this@LocationService
     }
 
     override fun onCreate() {
@@ -70,6 +85,7 @@ class LocationService : Service() {
                 val updateNotification = notification.setContentText(
                     "Location ($lat,$lon)"
                 )
+                mutableLocationSharedFlow.emit(it)
                 notificationManager.notify(1, updateNotification.build())
             }
             .launchIn(serviceScope)
