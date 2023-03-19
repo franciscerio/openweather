@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":common"))
 
+    implementation(Google.LOCATION_SERVICES)
     implementation(Google.HILT)
     kapt(Google.HILT_COMPILER)
     kapt(AndroidX.ARCH_EXTENSION_COMPILER)

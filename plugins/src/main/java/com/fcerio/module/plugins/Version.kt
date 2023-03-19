@@ -25,6 +25,9 @@ object Version {
     // Coroutine Rx
     const val COROUTINES = "1.6.4"
 
+    // Location
+    const val LOCATION_SERVICES = "20.0.0"
+
     // Third Party Libs
     const val RETROFIT = "2.9.0"
     const val OKHTTP = "4.10.0"
